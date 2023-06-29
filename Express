@@ -1,0 +1,11 @@
+Express
+Framework for writing backend
+
+1. Code which will return HTML
+2. Code will only return JSON (API)
+
+2-> REACT, Angular (JSON - display)
+
+Front end (react + NextJs) --- Back end(API (returns JSON) -- Java, Javascript, GO )
+
+JS - (Nodejs - Framework - Express, NestJs)

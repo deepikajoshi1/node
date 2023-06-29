@@ -1,0 +1,8 @@
+Running Mongodb locally
+docker run -p 27017:27017 --name test-mongo mongo:latest
+
+running docker in background
+docker run -d -p 27017:27017 --name test-mongo mongo:latest
+
+To see all running docker containers
+docker ps
