@@ -58,9 +58,13 @@ updateUser = async (req, res) => {
         message: 'User not found!',
       })
     }
-    user.name = body.name
+
+
+    user.salutation = body.salutation
+    user.firstName = body.firstName
+    user.lastName = body.lastName
+    user.dateOfBirth = body.dateOfBirth
     user.email = body.email
-    user.address = body.address
     try{
       await user.save()
     }
@@ -96,13 +100,13 @@ deleteUser = async (req, res) => {
 getUserById = async (req, res) => {
   let user = {};
   try {
-    users = await User.findOne({ _id: req.params.id });
+    user = await User.findOne({ _id: req.params.id });
   }
   catch (err) {
     return res.status(400).json({ success: false, error: err })
   }
 
-  return res.status(200).json({ data: users })
+  return res.status(200).json({ user })
 }
 
 

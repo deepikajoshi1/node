@@ -1,0 +1,7 @@
+1.  Install a mongo shell
+brew install mongosh
+
+Connect to mongo running in docker from command prompt/ terminal
+mongosh "mongodb://localhost:27017"
+2. Find the command to drop the database
+3. run the command
