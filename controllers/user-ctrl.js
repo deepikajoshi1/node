@@ -64,6 +64,7 @@ updateUser = async (req, res) => {
     user.firstName = body.firstName
     user.lastName = body.lastName
     user.dateOfBirth = body.dateOfBirth
+    user.gender = body.gender
     user.email = body.email
     try{
       await user.save()
