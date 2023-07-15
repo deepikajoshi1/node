@@ -1,9 +1,10 @@
-const User = require('../models/user-model')
+const {User, Address} = require('../models/user-model')
 
 
 
 createUser = async (req, res) =>  {
   const body = req.body
+  console.log(body);
   if (!body) {
     return res.status(400).json({
       success: false,
@@ -11,6 +12,7 @@ createUser = async (req, res) =>  {
     })
   }
   const user = new User(body)
+  const addressArray = body.address
 
   if (!user) {
     return res.status(400).json({ success: false, error: err })
@@ -18,8 +20,32 @@ createUser = async (req, res) =>  {
 
     try{
       await user.save()
-    }
+      // Check if u have address
+      // if yes, then loop through the addressArray
+      // create address obj from schema, make sure that user linkage is done
+      // save all the address objects in db
+      // wrire code for address update and delete.
+      // if user is  deleted addresses will also be deleted
+
+      // Check if there are addresses to be created
+
+      if(addressArray && addressArray.length>0){
+        addressArray.map(async addressData => {
+          const address = new Address({
+          addressLine1: addressData.addressLine1,
+          addressLine2: addressData.addressLine2,
+          state: addressData.state,
+          country: addressData.country,
+          postalCode: addressData.postalCode,
+          // make sure that user linkage is done
+          user: user._id,
+          });
+          await address.save();
+        })
+      }
+}
     catch(err){
+
       return res.status(400).json({
         err,
         message: 'User not created!',

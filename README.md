@@ -24,16 +24,24 @@ mongosh "mongodb://localhost:27017"
  show dbs
  ```
 
-3. Switch to your database, in this case your db name is users:
+5. Switch to your database, in this case your db name is user:
 ```
-use users
+use user
 ```
+e.g: user>
+6. To see collections:
+```
+show collections
+```
+e.g: user> show collections+enter:
+addresses
+users
 
-4. You can now view records in your collection, using:
+7. You can now view records in your collection, using:
 ```
 db.users.find()
 ```
-5. In order to delete all data from users collection (Truncate)
+8. In order to delete all data from users collection (Truncate)
 ```
 db.users.remove({})
 ```
