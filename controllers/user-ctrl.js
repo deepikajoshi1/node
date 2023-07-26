@@ -78,6 +78,7 @@ updateUser = async (req, res) => {
       message: 'User not found!',
     })
   }
+  console.log(user)
     if(!user){
       return res.status(404).json({
         err,
@@ -93,7 +94,7 @@ updateUser = async (req, res) => {
     user.gender = body.gender
     user.email = body.email
     try{
-      await user.save()
+      user = await user.save()
     }
     catch(err){
       return res.status(404).json({
@@ -101,6 +102,7 @@ updateUser = async (req, res) => {
         message: 'User not updated!',
       })
     }
+    console.log('update user', user)
     return res.status(200).json({
       success: true,
       id: user._id,
